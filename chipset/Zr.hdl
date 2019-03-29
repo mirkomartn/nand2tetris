@@ -1,0 +1,18 @@
+// For the purpose of building the ALU for the nand2tetris[.org] project
+// Checks if a 16bit number == 0
+// Using the same code withing ALU.hdl produced an error, this worked
+// Written by Gašper Štukelj
+
+CHIP Zr {
+    IN  
+        x[16];
+
+    OUT 
+        out; // out==1 if x==0, otherwise out==0
+
+    PARTS:
+        Or8Way(in=x[0..7], out=out1);
+        Or8Way(in=x[8..15], out=out2);
+        Or(a=out1, b=out2, out=out3);
+        Nand(a=out3, b=true, out=out);
+}

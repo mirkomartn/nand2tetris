@@ -1,0 +1,15 @@
+// For the purpose of building the ALU for the nand2tetris[.org] project
+// Checks if a 16bit number is negative (i.e. if the most significant bit == 1)
+// Using the same code withing ALU.hdl produced an error, this worked
+// Written by Gašper Štukelj
+
+CHIP Ng {
+    IN  
+        x[16];
+
+    OUT 
+        out;
+
+    PARTS:
+        Or(a=x[15], b=false, out=out);
+}
